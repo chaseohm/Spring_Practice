@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.*;
 public class MathController {
     @GetMapping("/add/{number}/{secondnumber}")
     @ResponseBody
-    public Integer add(@PathVariable int number, @PathVariable int secondnumber) {
-        return (number + secondnumber);
+    public String add(@PathVariable int number, @PathVariable int secondnumber) {
+        return String.valueOf(number + secondnumber);
     }
     @GetMapping("/subtract/{number}/{secondnumber}")
     @ResponseBody
-    public Integer subtract(@PathVariable int number, @PathVariable int secondnumber){
-        return (number - secondnumber);
+    public String subtract(@PathVariable int number, @PathVariable int secondnumber){
+        return String.valueOf(number - secondnumber);
     }
     @GetMapping("/multiply/{number}/{secondnumber}")
     @ResponseBody
-    public Integer multiply(@PathVariable int number, @PathVariable int secondnumber){
-        return (number * secondnumber);
+    public String multiply(@PathVariable int number, @PathVariable int secondnumber){
+        return String.valueOf(number * secondnumber);
     }
     @GetMapping("/divide/{number}/{secondnumber}")
     @ResponseBody
-    public Integer divide(@PathVariable int number, @PathVariable int secondnumber){
+    public double divide(@PathVariable double number, @PathVariable double secondnumber){
         return (number / secondnumber);
     }
 }

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class PostController {
     @GetMapping("/posts")
     @ResponseBody
-    public String index(){
+    public String allPosts(){
         return "index page";
     }
     @GetMapping("/posts/{postid}")
     @ResponseBody
-    public String onePost(@PathVariable int postid){
+    public String onePost(@PathVariable long postid){
         return "Here is your post " + postid;
     }
     @GetMapping("/posts/create")
     @ResponseBody
-    public String createPost(){
+    public String showForm(){
         return "View the Create Post Form";
     }
     @PostMapping("/posts/create")
