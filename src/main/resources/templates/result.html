@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dice Result</title>
+</head>
+<body>
+<p>You guessed <span th:text="${guess}"></span></p>
+
+<p>The answer was <span th:text="${random}"></span></p>
+
+<span th:if="${answer}">Answer is correct</span>
+</body>
+</html>
