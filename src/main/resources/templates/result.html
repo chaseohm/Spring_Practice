@@ -5,10 +5,13 @@
     <title>Dice Result</title>
 </head>
 <body>
+<span th:replace="fragments/header :: header"></span>
+<div th:replace="fragments/navbar :: navbar"></div>
 <p>You guessed <span th:text="${guess}"></span></p>
 
 <p>The answer was <span th:text="${random}"></span></p>
 
 <span th:if="${answer}">Answer is correct</span>
+<span th:replace="fragments/footer :: footer"></span>
 </body>
 </html>

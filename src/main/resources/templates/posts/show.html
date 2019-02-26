@@ -5,7 +5,11 @@
     <title>Show Post</title>
 </head>
 <body>
+<span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
-<h1>Showing an individual post</h1>
+<h2>This is the Post you are looking for.</h2>
+<h3><span th:text="${post.title}"></span></h3>
+<span th:text="${post.body}"></span>
+<span th:replace="fragments/footer :: footer"></span>
 </body>
 </html>

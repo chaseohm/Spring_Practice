@@ -5,7 +5,12 @@
     <title>Index</title>
 </head>
 <body>
+<span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
-<h1>Showing all posts</h1>
+<h2>Showing all posts</h2>
+<div th:each="post : ${postings}">
+    <h3>Title: <span th:text="${post.title}"></span> </h3>
+    <p> <span th:text="${post.body}"></span> </p>
+</div>
 </body>
 </html>
