@@ -1,9 +1,20 @@
 package com.codeup.springpractice.controllers;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "posts")
 public class Post {
-    private String body;
-    private String title;
+    @Id @GeneratedValue
     private Long id;
+
+    @Column(nullable = false, length = 512)
+    private String body;
+
+    @Column(nullable = false, length = 128)
+    private String title;
+
+
 
     public String getBody() {
         return body;
@@ -32,6 +43,9 @@ public class Post {
         this.body = body;
         this.title = title;
         this.id = id;
+    }
+    public Post() {
+
     }
 
 

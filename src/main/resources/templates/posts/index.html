@@ -8,7 +8,7 @@
 <span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
 <h2>Showing all posts</h2>
-<div th:each="post : ${postings}">
+<div th:each="post : ${posts}">
     <h3>Title: <span th:text="${post.title}"></span> </h3>
     <p> <span th:text="${post.body}"></span> </p>
 </div>
