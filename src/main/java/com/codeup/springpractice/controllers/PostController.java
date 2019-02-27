@@ -21,8 +21,8 @@ public class PostController {
         model.addAttribute("postings", postings);
         return "posts/index";
     }
-    @GetMapping("/posts/{postid}")
-    public String onePost(@PathVariable long postid, Model model){
+    @GetMapping("/posts/{id}")
+    public String onePost(@PathVariable long id, Model model){
         Post post = new Post("Had a great day in class today", "A-Okay Day",1L);
         model.addAttribute("post",post);
         return "posts/show";
