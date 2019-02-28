@@ -1,0 +1,34 @@
+.nav ul {
+    width:100%;
+    margin: auto;
+    padding:0;
+    list-style:none;
+    background-color: rgba(0, 1, 0, 0.3);
+    text-align:center;
+    font-family: "Trebuchet MS";
+    font-size: 30px;
+    text-shadow: 1px 1px white;
+}
+.nav li {
+    display:inline-block;
+    width:15%;
+    margin:0;
+    padding:0;
+}
+.nav a {
+    width: auto;
+    text-align:center;
+    text-decoration: none;
+    display:block;
+    color: silver;
+    border: none;
+    padding: 22px 32px;
+    font-size: 30px;
+    margin: 15px 15px;
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+}
+a:hover{
+    opacity: 1;
+}

@@ -47,6 +47,10 @@ public class Post {
     public Post() {
 
     }
+    public Post(String body, String title){
+        this.title = title;
+        this.body = body;
+    }
 
 
 }

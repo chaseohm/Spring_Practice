@@ -3,12 +3,26 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Create Post</title>
+    <link rel="stylesheet" th:href="@{/css/headCss.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navCss.css}"/>
+    <link rel="stylesheet" th:href="@{/css/createCss.css}"/>
 </head>
 <body>
+<div>
 <span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
+<div id="create">
 <h2>Create Post Form</h2>
-
-<span th:replace="fragments/footer :: footer"></span>
+</div>
+<form th:action="@{/posts/create}" th:method="post" th:object="${post}">
+    <p>Title:</p>
+    <input th:field="*{title}" id="blogT"/>
+    <br />
+    <p>Blog!</p>
+    <textarea th:field="*{body}" type="text"></textarea>
+    <br />
+    <input type="submit" />
+</form>
+</div>
 </body>
 </html>

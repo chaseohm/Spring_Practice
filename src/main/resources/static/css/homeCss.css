@@ -1,0 +1,38 @@
+html{
+    background-image: url("/images/homeback.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+h1{
+    color: ghostwhite;
+    font-family: "Trebuchet MS";
+    font-size: 45px;
+}
+
+h2{
+    color: ghostwhite;
+    font-family: "Trebuchet MS";
+    font-size: 28px;
+    text-shadow: 2px 2px black;
+}
+
+p {
+    color: whitesmoke;
+    font-family: "Trebuchet MS";
+    font-size: 22px;
+}
+
+#bio{
+    margin: auto;
+    width: 50%;
+    border: none;
+    padding: 10px;
+    text-align: center;
+}

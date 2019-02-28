@@ -1,0 +1,9 @@
+#title{
+    font-family: Impact;
+    font-size: 75px;
+    color: red;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+
+}

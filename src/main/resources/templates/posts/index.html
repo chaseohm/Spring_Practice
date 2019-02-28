@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Index</title>
+    <link rel="stylesheet"  th:href="@{/css/indexCss.css}"/>
+        <link rel="stylesheet" th:href="@{/css/headCss.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navCss.css}"/>
 </head>
 <body>
+<div>
 <span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
-<h2>Showing all posts</h2>
 <div th:each="post : ${posts}">
     <h3>Title: <span th:text="${post.title}"></span> </h3>
     <p> <span th:text="${post.body}"></span> </p>
+    <form th:action="@{/posts/delete}" th:method="POST">
+        <button th:value="${post.id}" th:name="id">Delete Post</button>
+    </form>
+    <hr />
+</div>
 </div>
 </body>
 </html>
