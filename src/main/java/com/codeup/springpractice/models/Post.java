@@ -1,4 +1,6 @@
-package com.codeup.springpractice.controllers;
+package com.codeup.springpractice.models;
+
+import com.codeup.springpractice.models.User;
 
 import javax.persistence.*;
 

@@ -1,6 +1,6 @@
 package com.codeup.springpractice.Services;
 
-import com.codeup.springpractice.controllers.Post;
+import com.codeup.springpractice.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;

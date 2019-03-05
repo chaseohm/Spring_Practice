@@ -32,3 +32,24 @@
 a:hover{
     opacity: 1;
 }
+
+button {
+    width: auto;
+    text-align:center;
+    text-decoration: none;
+    display:block;
+    color: black;
+    border: none;
+    padding: 22px 32px;
+    font-family: "Trebuchet MS";
+    font-size: 30px;
+    margin: 15px 15px;
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: transparent;
+    text-shadow: 1px 1px white;
+}
+button:hover{
+    opacity: 1;
+}

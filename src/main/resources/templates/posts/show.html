@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Show Post</title>
+    <link rel="stylesheet"  th:href="@{/css/showCss.css}"/>
+    <link rel="stylesheet" th:href="@{/css/headCss.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navCss.css}"/>
 </head>
 <body>
 <span th:replace="fragments/header :: header"></span>
@@ -14,6 +17,11 @@
 <br/>
 <h3>User</h3>
 <span th:text="${posts.user.email}"></span>
+<br/>
+<br/>
+<form th:action="@{/posts/delete}" th:method="POST">
+    <button th:value="${posts.id}" th:name="id">Delete Post</button>
+</form>
 
 <span th:replace="fragments/footer :: footer"></span>
 </body>

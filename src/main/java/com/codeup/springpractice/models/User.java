@@ -1,4 +1,4 @@
-package com.codeup.springpractice.controllers;
+package com.codeup.springpractice.models;
 
 
 import javax.persistence.*;
@@ -9,9 +9,9 @@ import java.util.List;
 public class User {
     @Id @GeneratedValue
     private Long id;
-    @Column(nullable = false, length = 512)
+    @Column(nullable = false, length = 512, unique = true)
     private String username;
-    @Column(nullable = false, length = 512)
+    @Column(nullable = false, length = 512, unique = true)
     private String email;
     @Column(nullable = false, length = 512)
     private String password;
@@ -19,6 +19,12 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
 
+    public User(User copy) {
+        id = copy.id; // This line is SUPER important! Many things won't work if it's absent
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
 
     public Long getId() {
         return id;

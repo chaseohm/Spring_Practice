@@ -11,12 +11,12 @@
 <div>
 <span th:replace="fragments/header :: header"></span>
 <div th:replace="fragments/navbar :: navbar"></div>
+
 <div th:each="post : ${posts}">
+    <a th:href="@{/posts/{id}(id = ${post.id})}">
     <h3>Title: <span th:text="${post.title}"></span> </h3>
     <p> <span th:text="${post.body}"></span> </p>
-    <form th:action="@{/posts/delete}" th:method="POST">
-        <button th:value="${post.id}" th:name="id">Delete Post</button>
-    </form>
+    </a>
     <hr />
 </div>
 </div>

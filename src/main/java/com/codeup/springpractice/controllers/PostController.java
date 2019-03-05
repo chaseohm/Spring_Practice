@@ -3,6 +3,9 @@ package com.codeup.springpractice.controllers;
 import com.codeup.springpractice.Repositories.Posts;
 import com.codeup.springpractice.Repositories.Users;
 import com.codeup.springpractice.Services.EmailService;
+import com.codeup.springpractice.models.Post;
+import com.codeup.springpractice.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +44,7 @@ public class PostController {
     }
     @PostMapping("/posts/create")
     public String submitPost(@ModelAttribute  Post post, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-        System.err.println(usersDao.findOne(1L).getUsername());
-        post.setUser(usersDao.findOne(1L));
+        post.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         Post savedPost = postDao.save(post);
         emailService.prepareAndSend(savedPost, "Post created successfully", "The Post was created with the id " + savedPost.getId());
         return "redirect:/posts";

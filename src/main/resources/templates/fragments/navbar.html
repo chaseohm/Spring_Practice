@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8" />
     <title>Title</title>
@@ -8,12 +9,30 @@
 
 <th:inline th:fragment="navbar">
     <nav class="nav">
+        <div sec:authorize="!isAuthenticated()">
         <ul>
             <li><a th:href="@{/}">Home</a></li>
             <li><a th:href="@{/posts}">Posts</a></li>
-            <li><a th:href="@{/posts/create}">Create</a></li>
             <li><a th:href="@{/posts/contact}">Contact</a></li>
+            <li><a th:href="@{/sign-up}">Sign Up</a></li>
+            <li><form th:action="@{/login}" th:method="post">
+                <button>Login</button>
+            </form>
+            </li>
         </ul>
+        </div>
+            <div sec:authorize="isAuthenticated()">
+                <ul>
+                    <li><a th:href="@{/}">Home</a></li>
+                    <li><a th:href="@{/posts}">Posts</a></li>
+                    <li><a th:href="@{/posts/contact}">Contact</a></li>
+                     <li><a th:href="@{/posts/create}">Create</a></li>
+                     <li><form th:action="@{/logout}" th:method="post">
+                    <button>Logout</button>
+                        </form>
+            </li>
+                </ul>
+            </div>
     </nav>
 </th:inline>
 
