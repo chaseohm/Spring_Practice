@@ -1,21 +1,24 @@
 package com.codeup.springpractice.controllers;
 
 import com.codeup.springpractice.Repositories.Posts;
+import com.codeup.springpractice.Repositories.Users;
+import com.codeup.springpractice.Services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 @Controller
 public class PostController {
+    private final EmailService emailService;
 
     private final Posts postDao;
 
-    public PostController(Posts postDao) {
+    private final Users usersDao;
+
+    public PostController(Posts postDao, EmailService emailService, Users usersDao) {
         this.postDao = postDao;
+        this.emailService = emailService;
+        this.usersDao = usersDao;
     }
 
 
@@ -38,7 +41,10 @@ public class PostController {
     }
     @PostMapping("/posts/create")
     public String submitPost(@ModelAttribute  Post post, @RequestParam(name = "title") String title, @RequestParam(name = "body") String body){
-        postDao.save(post);
+        System.err.println(usersDao.findOne(1L).getUsername());
+        post.setUser(usersDao.findOne(1L));
+        Post savedPost = postDao.save(post);
+        emailService.prepareAndSend(savedPost, "Post created successfully", "The Post was created with the id " + savedPost.getId());
         return "redirect:/posts";
     }
     @PostMapping("/posts/delete")
